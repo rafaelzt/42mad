@@ -1,0 +1,6 @@
+[submodule "cursus"]
+	path = cursus
+	url = git@github.com:rafaelzt/cursus.git
+[submodule "piscine"]
+	path = piscine
+	url = git@github.com:rafaelzt/piscine.git
