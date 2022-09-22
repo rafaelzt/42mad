@@ -3,5 +3,6 @@
 		"stdlib.h": "c",
 		"limits.h": "c",
 		"libft.h": "c"
-	}
+	},
+	"C_Cpp.errorSquiggles": "Disabled"
 }
