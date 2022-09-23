@@ -11,7 +11,10 @@
                 "-Wextra",
                 "-Werror",
                 "${file}",
+                "ft_calloc.c",
                 "ft_strlen.c",
+                "ft_bzero.c",
+                "ft_memset.c",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],
