@@ -1,9 +1,13 @@
 {
 	"files.associations": {
+		"*.ps1": "powershell",
+		"*.html": "html",
+		"*.c": "c",
 		"stdlib.h": "c",
 		"limits.h": "c",
 		"libft.h": "c",
-		"unistd.h": "c"
+		"unistd.h": "c",
+		"strings.h": "c"
 	},
 	"C_Cpp.errorSquiggles": "Disabled"
 }
