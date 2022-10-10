@@ -6,7 +6,7 @@
 /*   By: rzamolo- <rzamolo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 16:24:29 by rzamolo-          #+#    #+#             */
-/*   Updated: 2022/10/10 13:42:01 by rzamolo-         ###   ########.fr       */
+/*   Updated: 2022/10/10 13:55:22 by rzamolo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,67 +80,74 @@
        puesto que ese fue el nombre usado en la propuesta inicial.
 */
 
+/* va_list -> hold information about the variadic argument list. */
+/* printed -> count of printed characters */
+/* va_start -> start variadic argument processing */
+/* va_end -> end variadic argument processing */
 
-int simple_printf(const char *format, ...)
+int	simple_printf(const char *format, ...)
 {
-    va_list ap; /* hold information about the variadic argument list. */
-    int printed = 0; /* count of printed characters */
+	int		f;
+	va_list	ap;
+	int		printed;
 
-    va_start(ap, format); /* start variadic argument processing */
-
-    while (*format != '\0') /* read format string until string terminator */
-    {
-        int f = 0;
-
-        if (*format == '%')
-        {
-            ++format;
-            switch(*format)
-            {
-                case 'c' :
-                    f = printf("%d", va_arg(ap, int)); /* print next variadic argument, note type promotion from char to int */
-                    break;
-                case 'd' :
-                    f = printf("%d", va_arg(ap, int)); /* print next variadic argument */
-                    break;
-
-                case 'f' :
-                    f = printf("%f", va_arg(ap, double)); /* print next variadic argument */
-                    break;
+	va_start(ap, format);
+	printed = 0;
+	while (*format != '\0')
+	{
+		f = 0;
+		if (*format == '%')
+		{
+			++format;
+			switch (*format)
+			{
+				case 'c' :
+					f = printf("%d", va_arg(ap, int));
+	/* print next variadic argument, note type promotion from char to int */
+				break ;
+				case 'd' :
+					f = printf("%d", va_arg(ap, int));
+	/* print next variadic argument */
+				break ;
+				case 'f' :
+					f = printf("%f", va_arg(ap, double));
+	/* print next variadic argument */
+				break ;
 				case 's' :
 					f = printf("%s", va_arg(ap, char *));
-					break;
-                default :
-                    f = -1; /* invalid format specifier */
-                    break;
-            }
-        }
-        else
-        {
-            f = printf("%c", *format); /* print any other characters */
-        }
+				break ;
+				default :
+					f = -1;
+	/* invalid format specifier */
+				break ;
+			}
+		}
+		else
+		{
+			f = printf("%c", *format); /* print any other characters */
+		}
 
-        if (f < 0) /* check for errors */
-        {
-            printed = f;
-            break;
-        }
-        else
-        {
-            printed += f;
-        }
-        ++format; /* move on to next character in string */
-    }
+		if (f < 0) /* check for errors */
+		{
+			printed = f;
+			break ;
+		}
+		else
+		{
+			printed += f;
+		}
+		++format; /* move on to next character in string */
+	}
 
-    va_end(ap); /* end variadic argument processing */
+	va_end(ap);
 
-    return printed;
+	return (printed);
 }
 
-int main ()
+int	main ()
 {
-    int x = 40;
-    int y = 0;
+	int x = 40;
+	int y = 0;
 	char str[50] = "This is a test";
 
     y = simple_printf("There are %d characters in this sentence", x);
