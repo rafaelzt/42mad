@@ -87,9 +87,9 @@ if has('termguicolors')
     set termguicolors
 endif
 
-set guifont=Hack\ 11    " Set font
-set background=dark     " Set background
-colorscheme edge        " Set color scheme
+set guifont=Hack\ 11            " Set font
+set background=dark             " Set background
+colorscheme hybrid_material     " Set color scheme
 
 " ------------------------------------------------------------
 " AUTO-PAIRS
